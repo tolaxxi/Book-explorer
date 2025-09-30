@@ -6,7 +6,14 @@ import Login from './pages/Login.jsx';
 
 const App = () => {
   const router = createBrowserRouter([
-    { path: '/', element: <RootLayouts />, children: [{ path: 'login', element: <Login /> }] },
+    {
+      path: '/',
+      element: <RootLayouts />,
+      children: [
+        { index: true, element: <Home /> },
+        { path: 'login', element: <Login /> },
+      ],
+    },
   ]);
   return <RouterProvider router={router} />;
 };

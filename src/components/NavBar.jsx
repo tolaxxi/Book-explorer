@@ -2,6 +2,7 @@ import { IoBookOutline, IoMenuSharp } from 'react-icons/io5';
 import { navLinks } from '../data/NavLinks.js';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
+import { IoMdClose } from 'react-icons/io';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,14 +20,14 @@ const NavBar = () => {
 
       {/* mobile menu */}
       <button className="md:hidden" onClick={toggleNavBar}>
-        <IoMenuSharp size={25} />
+        {isOpen ? <IoMdClose size={25} /> : <IoMenuSharp size={25} />}
       </button>
 
       {/* nav bar menu */}
       <nav
         className={`${
-          isOpen ? 'hidden' : 'flex'
-        } bg-amber-100 p-5 absolute top-[100%] right-0 left-0 md:relative md:bg-inherit md:p-0 md:top-auto md:flex`}
+          isOpen ? 'flex' : 'hidden'
+        } transparent-background p-5 absolute top-[100%] right-0 left-0 md:relative md:bg-inherit md:p-0 md:top-auto md:flex`}
       >
         <ul className="flex items-center flex-col w-full gap-2 md:flex-row ">
           {navLinks.map(({ label, path, Icon, variant }) => {
@@ -34,11 +35,13 @@ const NavBar = () => {
               <NavLink
                 to={path}
                 key={path}
-                className={`${
+                className={({ isActive }) =>
                   variant
-                    ? 'border rounded-md py-1 px-3 shadow-2xl border-zinc-300 hover:bg-purple-300'
-                    : 'hover:bg-purple-300 py-2 px-4 rounded-md '
-                }`}
+                    ? 'border rounded-md py-1 px-4 shadow-md border-zinc-300 hover:bg-purple-300'
+                    : `  py-1 px-4 rounded-md ${
+                        isActive ? 'bg-indigo-600 text-white hover:bg-indigo-500' : 'hover:bg-purple-300'
+                      }`
+                }
               >
                 {Icon ? (
                   <span className="flex items-center">

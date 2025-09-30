@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 
-.active {
-  @apply bg-indigo-600 py-2 px-4 rounded-md;
+.transparent-background {
+    background-color: rgba(255, 255, 255, 0.5);
+     backdrop-filter: blur(2px);
 }
