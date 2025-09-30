@@ -1,25 +1,22 @@
-import { useNavigate } from 'react-router-dom';
+import Card from '../components/Card.jsx';
+import { cardData } from '../data/CardData.js';
+import Hero from '../components/Hero.jsx';
 
 const Home = () => {
-  const navigate = useNavigate();
-
-  function navigateToBooks() {
-    navigate('/books');
-  }
   return (
     <main>
-      <section
-        className="w-full text-center flex justify-center items-center flex-col bg-linear-to-br gap-5
-      r from-pink-500 to-blue-500 h-[80dvh]"
-      >
-        <h1 className="text-7xl text-teal-50 w-[50%]">Discover Your Next Great Read</h1>
-        <p className="w-[50%] text-xl text-teal-50">
-          Explore thousands of books, read reviews, and find your perfect literary companion in our curated collection.
-          Browse Books
-        </p>
-        <button className="rounded-3xl bg-indigo-500 px-6 py-2 text-xl text-teal-50 " onClick={navigateToBooks}>
-          Browse Books
-        </button>
+      <Hero />
+      {/* feature section  */}
+      <section className="bg-violet-100 w-full flex flex-col items-center justify-center gap-10 py-10 md:flex-col">
+        <h2 className="text-xl font-medium">Why Choose Book Explorer?</h2>
+
+        {/* cards */}
+        <div className="flex flex-col md:flex-row gap-10">
+          {cardData.map((card) => {
+            const { title, Icon, desc, id } = card;
+            return <Card cardIcon={<Icon size={24} key={id} />} CardTitle={title} CardText={desc} />;
+          })}
+        </div>
       </section>
     </main>
   );
