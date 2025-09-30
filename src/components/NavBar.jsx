@@ -1,6 +1,6 @@
 import { IoBookOutline, IoMenuSharp } from 'react-icons/io5';
 import { navLinks } from '../data/NavLinks.js';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { IoMdClose } from 'react-icons/io';
 
@@ -13,10 +13,10 @@ const NavBar = () => {
 
   return (
     <header className="w-full px-5 py-3 flex items-center justify-between shadow-2xs relative">
-      <div className="flex items-center text-blue-800 font-bold text-xl">
+      <Link to="/" className="flex items-center text-blue-800 font-bold text-xl">
         <IoBookOutline size={25} />
-        <h1 className="ml-2">Book Explorer</h1>
-      </div>
+        <h2 className="ml-2">Book Explorer</h2>
+      </Link>
 
       {/* mobile menu */}
       <button className="md:hidden" onClick={toggleNavBar}>
