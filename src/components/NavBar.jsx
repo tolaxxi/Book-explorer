@@ -29,12 +29,14 @@ const NavBar = () => {
           isOpen ? 'flex' : 'hidden'
         } transparent-background p-5 absolute top-[100%] right-0 left-0 md:relative md:bg-inherit md:p-0 md:top-auto md:flex`}
       >
+        {/* menu items */}
+
         <ul className="flex items-center flex-col w-full gap-2 md:flex-row ">
-          {navLinks.map(({ label, path, Icon, variant }) => {
+          {navLinks.map(({ label, path, Icon, variant, id }) => {
             return (
               <NavLink
                 to={path}
-                key={path}
+                key={id}
                 className={({ isActive }) =>
                   variant
                     ? 'border rounded-md py-1 px-4 shadow-md border-zinc-300 hover:bg-purple-300'
