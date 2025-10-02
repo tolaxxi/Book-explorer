@@ -12,7 +12,8 @@ const About = () => {
       {/* About card  */}
 
       <div className="flex flex-col items-center gap-8 px-3 py-10 sm:flex-row justify-center">
-        {aboutCardData.map(({ id, title, Icon, desc }) => {
+        {aboutCardData.map((card) => {
+          const { id, title, Icon, desc } = card;
           return <AboutCard key={id} title={title} Icon={<Icon size={24} />} desc={desc} />;
         })}
       </div>
