@@ -5,10 +5,10 @@ const Hero = () => {
 
   return (
     <section
-      className="w-full text-center flex justify-center items-center flex-col bg-linear-to-br gap-5
+      className="min-w-full text-center flex justify-center items-center flex-col bg-linear-to-br gap-5
       r from-pink-500 to-blue-500 h-dvh py-10"
     >
-      <h1 className="text-6xl md:text-7xl max-w-2xl m text-teal-50 ">Discover Your Next Great Read</h1>
+      <h1 className="text-6xl md:text-7xl max-w-2xl text-teal-50 ">Discover Your Next Great Read</h1>
       <p className=" text-lg md:text-xl text-teal-50">
         Explore thousands of books, read reviews, and find your perfect literary companion in our curated collection.
         Browse Books

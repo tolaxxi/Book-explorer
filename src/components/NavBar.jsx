@@ -12,7 +12,7 @@ const NavBar = () => {
   }
 
   return (
-    <header className="w-full px-5 py-3 flex items-center sticky justify-between shadow-2xs top-0 bg-white">
+    <header className="min-w-full px-5 py-3 flex items-center sticky justify-between shadow-2xs top-0 bg-white">
       <Link to="/" className="flex items-center font-bold text-xl">
         <IoBookOutline size={25} className="text-violet-500" />
         <h2 className="ml-2 bg-linear-to-br from-pink-500 to-violet-500 bg-clip-text  text-transparent">
@@ -41,7 +41,7 @@ const NavBar = () => {
                 key={id}
                 className={({ isActive }) =>
                   variant
-                    ? 'border rounded-md py-1 px-4 shadow-md border-zinc-300 hover:bg-purple-300'
+                    ? 'border rounded-md py-1 px-4 shadow-md border-zinc-300 bg-white hover:bg-purple-300'
                     : `  py-1 px-4 rounded-md ${
                         isActive ? 'bg-violet-500 text-white hover:bg-indigo-500' : 'hover:bg-purple-300'
                       }`

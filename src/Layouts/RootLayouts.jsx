@@ -3,7 +3,7 @@ import NavBar from '../components/NavBar.jsx';
 
 const RootLayouts = () => {
   return (
-    <div>
+    <div className='w-full'>
       <NavBar />
       <Outlet />
     </div>
