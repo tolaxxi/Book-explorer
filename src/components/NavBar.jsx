@@ -14,7 +14,7 @@ const NavBar = () => {
   return (
     <header className="min-w-full px-5 py-3 flex items-center sticky justify-between shadow-2xs top-0 bg-white">
       <Link to="/" className="flex items-center font-bold text-xl">
-        <IoBookOutline size={25} className="text-violet-500" />
+        <IoBookOutline size={25} className="text-violet-500 hover:scale-125" />
         <h2 className="ml-2 bg-linear-to-br from-pink-500 to-violet-500 bg-clip-text  text-transparent">
           Book Explorer
         </h2>
