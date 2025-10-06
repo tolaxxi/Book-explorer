@@ -6,6 +6,7 @@ import Login from './pages/Login.jsx';
 import About from './pages/About.jsx';
 import Books from './pages/Books.jsx';
 import Error from './pages/Error.jsx';
+import Admin from './pages/Admin.jsx';
 
 const App = () => {
   const router = createBrowserRouter([
@@ -17,6 +18,7 @@ const App = () => {
         { path: 'about', element: <About /> },
         { path: 'books', element: <Books /> },
         { path: 'login', element: <Login /> },
+        { path: 'admin', element: <Admin /> },
         { path: '*', element: <Error /> },
       ],
     },
