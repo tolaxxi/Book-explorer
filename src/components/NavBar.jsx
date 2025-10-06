@@ -1,11 +1,23 @@
 import { IoBookOutline, IoMenuSharp } from 'react-icons/io5';
 import { navLinks } from '../data/NavLinks.js';
 import { Link, NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { IoMdClose } from 'react-icons/io';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   function toggleNavBar() {
     setIsOpen(!isOpen);
@@ -27,6 +39,7 @@ const NavBar = () => {
 
       {/* nav bar menu */}
       <nav
+        ref={menuRef}
         className={`${
           isOpen ? 'flex' : 'hidden'
         } transparent-background p-5 absolute top-[100%] right-0 left-0 md:relative md:bg-inherit md:p-0 md:top-auto md:flex md:h-auto`}
