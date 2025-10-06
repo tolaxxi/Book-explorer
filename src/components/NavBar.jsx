@@ -29,7 +29,7 @@ const NavBar = () => {
       <nav
         className={`${
           isOpen ? 'flex' : 'hidden'
-        } transparent-background p-5 absolute top-[100%] right-0 left-0 md:relative md:bg-inherit md:p-0 md:top-auto md:flex h-80 md:h-auto`}
+        } transparent-background p-5 absolute top-[100%] right-0 left-0 md:relative md:bg-inherit md:p-0 md:top-auto md:flex md:h-auto`}
       >
         {/* menu items */}
 
