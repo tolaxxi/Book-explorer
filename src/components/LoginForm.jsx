@@ -1,5 +1,15 @@
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/authContext/AuthContext.jsx';
+
 const LoginForm = () => {
-  
+  const { login } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    login();
+    navigate('/admin');
+  };
+
   return (
     <form className="border border-zinc-300 px-10 py-12 w-[90%] sm:w-[70%] md:w-[40%] lg:w-[30%] rounded-3xl flex flex-col items-center">
       <p className="text-zinc-500 text-lg">Login</p>
@@ -14,7 +24,11 @@ const LoginForm = () => {
         <input type="password" required placeholder="Enter your password" />
       </div>
 
-      <button type="submit" className="bg-indigo-500 w-full mb-2 py-2 text-white rounded-md my-1 px-2.5">
+      <button
+        type="submit"
+        className="bg-indigo-500 w-full mb-2 py-2 text-white rounded-md my-1 px-2.5"
+        onClick={handleLogin}
+      >
         Sign in
       </button>
       <div className="text-zinc-500 w-full text-center  bg-zinc-200 rounded-md sm:text-xs  px-2 py-2">

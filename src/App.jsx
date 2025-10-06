@@ -7,6 +7,8 @@ import About from './pages/About.jsx';
 import Books from './pages/Books.jsx';
 import Error from './pages/Error.jsx';
 import Admin from './pages/Admin.jsx';
+import ProtectedRoute from './components/ProtectedRoute.jsx';
+import {AuthContextProvider} from './context/authContext/AuthContextProvider.jsx';
 
 const App = () => {
   const router = createBrowserRouter([
@@ -18,11 +20,23 @@ const App = () => {
         { path: 'about', element: <About /> },
         { path: 'books', element: <Books /> },
         { path: 'login', element: <Login /> },
-        { path: 'admin', element: <Admin /> },
+
+        {
+          path: 'admin',
+          element: (
+            <ProtectedRoute>
+              <Admin />
+            </ProtectedRoute>
+          ),
+        },
         { path: '*', element: <Error /> },
       ],
     },
   ]);
-  return <RouterProvider router={router} />;
+  return (
+    <AuthContextProvider>
+      <RouterProvider router={router} />
+    </AuthContextProvider>
+  );
 };
 export default App;

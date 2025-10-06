@@ -1,4 +1,4 @@
-import { CiLogin } from 'react-icons/ci';
+import { CiLogin,  } from 'react-icons/ci';
 
 export const navLinks = [
   { id: 1, label: 'Home', path: '/' },
@@ -6,4 +6,5 @@ export const navLinks = [
   { id: 3, label: 'About', path: '/about' },
   { id: 4, label: 'Admin', path: '/admin' },
   { id: 5, label: 'Login', path: '/login', Icon: CiLogin, variant: 'login-btn' },
+  
 ];

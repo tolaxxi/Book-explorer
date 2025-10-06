@@ -1,12 +1,26 @@
 import { IoBookOutline, IoMenuSharp } from 'react-icons/io5';
 import { navLinks } from '../data/NavLinks.js';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, Navigate, NavLink } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import { IoMdClose } from 'react-icons/io';
+import { useAuth } from '../context/authContext/AuthContext.jsx';
+import { CiLogout } from 'react-icons/ci';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { isAuthenticated, login, logOut } = useAuth();
+
   const menuRef = useRef(null);
+
+  const filteredLinks = navLinks.filter(({ label }) => {
+    if (!isAuthenticated && label === 'Admin') {
+      return false;
+    } else if (isAuthenticated && label === 'Login') {
+      return false;
+    } else {
+      return true;
+    }
+  });
 
   useEffect(() => {
     function handleClickOutside(e) {
@@ -47,7 +61,7 @@ const NavBar = () => {
         {/* menu items */}
 
         <ul className="flex items-center flex-col w-full md:gap-2  gap-10 md:flex-row ">
-          {navLinks.map(({ label, path, Icon, variant, id }) => {
+          {filteredLinks.map(({ label, path, Icon, variant, id }) => {
             return (
               <NavLink
                 to={path}
@@ -70,6 +84,16 @@ const NavBar = () => {
               </NavLink>
             );
           })}
+
+          {isAuthenticated && (
+            <button
+              className="border rounded-md py-1 px-4 shadow-md justify-center flex items-center border-zinc-300 bg-white hover:bg-purple-300 gap-2"
+              onClick={() => logOut()}
+            >
+              {' '}
+              <CiLogout /> Logout
+            </button>
+          )}
         </ul>
       </nav>
     </header>
